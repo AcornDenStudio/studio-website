@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --clay:#1A1E1D;
-    --clay-deep:#161A19;
-    --card:#242A29;
-    --ink:#F0EDE8;
-    --ink-soft:#9A948C;
-    --coral:#4FB5A5;
-    --sea:#4FB5A5;
-    --sun:#E0A94F;
-    --line:rgba(255,255,255,.10);
+    --clay:#FAF8F4;
+    --clay-deep:#F2EFE9;
+    --card:#FFFFFF;
+    --ink:#242220;
+    --ink-soft:#6B6560;
+    --coral:#1F6F6B;
+    --sea:#1F6F6B;
+    --sun:#C08A3E;
+    --line:#E8E4DD;
     --disp:"Space Grotesk","Noto Sans TC",sans-serif;
     --han:"Noto Sans TC","Inter",sans-serif;
     --body:"Inter","Noto Sans TC",sans-serif;
@@ -41,7 +41,7 @@
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 36px;transition:background .4s,box-shadow .4s,padding .4s}
-  nav.solid{background:rgba(26,30,29,.85);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:12px 36px}
+  nav.solid{background:rgba(250,248,244,.85);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:12px 36px}
   .nav-inner{width:min(100%,1296px);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
   .brand img{height:60px;width:auto;display:block;transition:height .4s}
   nav.solid .brand img{height:48px}
@@ -59,7 +59,7 @@
     min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
     padding:96px 36px 40px;position:relative;
     background:
-      radial-gradient(60% 50% at 50% 30%, #232927 0%, var(--clay) 55%, var(--clay-deep) 100%);
+      radial-gradient(60% 50% at 50% 30%, #FFFFFF 0%, var(--clay) 55%, var(--clay-deep) 100%);
   }
   .hero-stage{width:min(100%,1040px);margin:0 auto}
   /* 中央大圖 */
@@ -137,17 +137,17 @@
   .srow p{color:var(--ink-soft);font-size:1.04rem;max-width:46ch}
 
   /* CONTACT */
-  .contact{background:#101413;color:var(--ink);text-align:center}
-  .contact h2{font-family:var(--disp);font-size:clamp(2.2rem,5vw,4rem);font-weight:700;margin-bottom:1.4rem;color:var(--ink)}
+  .contact{background:var(--ink);color:var(--card);text-align:center}
+  .contact h2{font-family:var(--disp);font-size:clamp(2.2rem,5vw,4rem);font-weight:700;margin-bottom:1.4rem;color:var(--card)}
   .contact h2.zh{font-family:var(--han)}
   .contact h2 .sun{color:var(--sun)}
   .contact p{color:rgba(251,244,231,.72);max-width:40ch;margin:0 auto 2.4rem;font-size:1.06rem}
-  .contact .mail{display:inline-flex;align-items:center;gap:11px;background:var(--sun);color:#1A1E1D;font-family:var(--disp);font-weight:700;font-size:1.1rem;padding:15px 34px;border-radius:100px;transition:transform .35s cubic-bezier(.34,1.5,.64,1),box-shadow .35s;box-shadow:0 10px 26px rgba(0,0,0,.3)}
+  .contact .mail{display:inline-flex;align-items:center;gap:11px;background:var(--sun);color:var(--ink);font-family:var(--disp);font-weight:700;font-size:1.1rem;padding:15px 34px;border-radius:100px;transition:transform .35s cubic-bezier(.34,1.5,.64,1),box-shadow .35s;box-shadow:0 10px 26px rgba(0,0,0,.3)}
   .contact .mail:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.4)}
   .contact .mail svg{width:19px;height:19px}
 
   /* FOOTER */
-  footer{background:#101413;padding:54px 0 46px;border-top:1px solid rgba(255,255,255,.1)}
+  footer{background:var(--ink);padding:54px 0 46px;border-top:1px solid rgba(255,255,255,.1)}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
   .foot .flogo img{height:56px;width:auto;display:block}
   .foot .social{display:flex;gap:20px}
