@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>橡實洞工作室 Acorn Den Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#1A1E1D;
+    --clay-deep:#161A19;
+    --card:#242A29;
+    --ink:#F0EDE8;
+    --ink-soft:#9A948C;
+    --coral:#4FB5A5;
+    --sea:#4FB5A5;
+    --sun:#E0A94F;
+    --line:rgba(255,255,255,.10);
+    --disp:"Space Grotesk","Noto Sans TC",sans-serif;
+    --han:"Noto Sans TC","Inter",sans-serif;
+    --body:"Inter","Noto Sans TC",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--clay);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .zh{font-family:var(--han)}
+  h2.big.zh,h2.big .zh{font-family:var(--han);font-weight:900;letter-spacing:-.02em}
+  .works-title.zh,.works-title .zh{font-family:var(--han);font-weight:900}
+  .work h3.zh,.srow h3.zh{font-family:var(--han);font-weight:700}
+  .about-meta .v.zh{font-family:var(--han);font-weight:900}
+  .contact h2.zh{font-family:var(--han);font-weight:900}
+  body[data-lang="en"] .zh{display:none}
+  body[data-lang="zh"] .en{display:none}
+  body[data-lang="en"]{font-family:var(--body)}
+  ::selection{background:var(--coral);color:#fff}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{line-height:1.18;font-weight:600}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 36px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 36px;transition:background .4s,box-shadow .4s,padding .4s}
+  nav.solid{background:rgba(26,30,29,.85);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:12px 36px}
+  .nav-inner{width:min(100%,1296px);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+  .brand img{height:60px;width:auto;display:block;transition:height .4s}
+  nav.solid .brand img{height:48px}
+  .nav-r{display:flex;align-items:center;gap:28px}
+  .nav-links{display:flex;gap:26px}
+  .nav-links a{font-weight:600;font-size:.92rem;color:var(--ink);position:relative;padding:3px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:2px;background:var(--coral);border-radius:2px;transition:width .3s}
+  .nav-links a:hover::after{width:100%}
+  .lang{display:flex;gap:8px;font-weight:700;font-size:.82rem}
+  .lang button{background:none;border:none;cursor:pointer;color:var(--ink);opacity:.45;font-family:var(--body);font-weight:700;padding:0;transition:opacity .25s}
+  .lang button.on{opacity:1;color:var(--coral)}
+
+  /* HERO：中央大圖，靠近標題列 */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:96px 36px 40px;position:relative;
+    background:
+      radial-gradient(60% 50% at 50% 30%, #232927 0%, var(--clay) 55%, var(--clay-deep) 100%);
+  }
+  .hero-stage{width:min(100%,1040px);margin:0 auto}
+  /* 中央大圖 */
+  .showcase{
+    position:relative;width:100%;border-radius:26px;overflow:hidden;
+    box-shadow:0 12px 32px rgba(51,39,30,.12);
+    aspect-ratio:16/9;
+    background:#8fcfe8 url('assets/captain_cat_beach.png') center/cover no-repeat;
+  }
+  .showcase .sc-logo{position:absolute;left:5.5%;bottom:11%;width:min(36%,340px);z-index:2;filter:drop-shadow(0 4px 14px rgba(30,20,14,.45))}
+  /* 下滑箭頭，靠圖右邊，不圈起來 */
+  .hero-arrow{display:flex;justify-content:flex-end;margin-top:26px}
+  .hero-arrow a{display:inline-flex;color:var(--ink-soft);transition:color .3s,transform .3s}
+  .hero-arrow a:hover{color:var(--coral);transform:translateY(3px)}
+  .hero-arrow svg{width:30px;height:30px;animation:bob 1.9s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* 段落骨架 */
+  .sec{padding:120px 0;position:relative}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:1.2rem}
+  .kicker::before{content:"";width:22px;height:2px;background:var(--coral);border-radius:2px}
+  h2.big{font-family:var(--disp);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;letter-spacing:-.03em}
+  h2.big.zh,h2.big .zh{font-family:var(--han)}
+  h2.big .accent{color:var(--coral)}
+
+  /* WORKS：四格兩兩並排（參考 Rayark News 排版） */
+  .works{background:var(--clay-deep)}
+  .works-head{margin-bottom:56px}
+  .works-title{font-family:var(--disp);font-size:clamp(3rem,7vw,5.6rem);font-weight:700;letter-spacing:-.02em;line-height:1}
+  .works-title.zh,.works-title .zh{font-family:var(--han)}
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px 40px}
+  .work{display:flex;flex-direction:column}
+  .work-thumb{width:100%;aspect-ratio:16/10;border-radius:16px;overflow:hidden;position:relative;box-shadow:0 14px 34px rgba(120,90,50,.2);transition:transform .4s cubic-bezier(.34,1.3,.64,1),box-shadow .4s}
+  .work:hover .work-thumb{transform:translateY(-6px);box-shadow:0 22px 44px rgba(120,90,50,.3)}
+  .work-thumb .img{position:absolute;inset:0;background-size:cover;background-position:center}
+  .work-thumb.cc .img{background-image:url('assets/captain_cat_beach.png');background-color:#8fcfe8}
+  .work-thumb .logo-on{position:absolute;left:6%;bottom:9%;width:min(46%,220px);z-index:2;filter:drop-shadow(0 3px 10px rgba(30,20,14,.4))}
+  /* 待製作縮圖 */
+  .work-thumb.tba{background:var(--card);border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;box-shadow:none}
+  .work:hover .work-thumb.tba{transform:translateY(-6px);border-color:var(--coral)}
+  .work-thumb.tba .ph{font-family:var(--han);color:var(--ink-soft);opacity:.6;font-size:1rem;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .work-thumb.tba .ph svg{width:34px;height:34px;opacity:.5}
+
+  .work-meta{display:flex;align-items:center;gap:12px;margin-top:20px;margin-bottom:8px}
+  .work-meta .date{font-weight:700;font-size:.82rem;color:var(--ink-soft)}
+  .work-meta .tag{font-weight:700;font-size:.72rem;color:var(--sea);background:rgba(94,140,125,.14);padding:3px 11px;border-radius:100px}
+  .work-meta .tag.soon{color:var(--sun);background:rgba(240,178,63,.16)}
+  .work h3{font-family:var(--disp);font-size:1.5rem;font-weight:700;margin-bottom:2px}
+  .work h3.zh{font-family:var(--han)}
+  .work .romaji{font-family:var(--han);font-size:.86rem;color:var(--ink-soft);margin-bottom:12px}
+  .work .desc{color:var(--ink-soft);font-size:1rem;max-width:52ch}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center;margin-top:2.4rem}
+  .about-lead{font-family:var(--han);font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1.65;font-weight:500}
+  body[data-lang="en"] .about-lead{font-family:var(--disp);font-weight:500}
+  .about-lead .hl{color:var(--coral)}
+  .about-grid p.sub{color:var(--ink-soft);font-size:1.05rem;margin-top:1.4rem;max-width:50ch}
+  .about-visual{display:flex;justify-content:center}
+  .about-char{width:min(82%,380px);filter:drop-shadow(0 18px 30px rgba(120,90,50,.3));animation:bobf 6s ease-in-out infinite}
+  @keyframes bobf{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .about-meta{display:flex;gap:48px;flex-wrap:wrap;margin-top:3rem;padding-top:26px;border-top:1px solid var(--line)}
+  .about-meta .k{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:5px}
+  .about-meta .v{font-family:var(--disp);font-weight:600;font-size:1.1rem}
+  .about-meta .v.zh{font-family:var(--han);font-weight:700}
+
+  /* STUDIO */
+  .studio-list{margin-top:2.4rem}
+  .srow{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center;padding:34px 0;border-top:1px solid var(--line);transition:padding-left .35s}
+  .srow:last-child{border-bottom:1px solid var(--line)}
+  .srow:hover{padding-left:12px}
+  .srow h3{font-family:var(--disp);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600;display:flex;align-items:center;gap:14px}
+  .srow h3.zh{font-family:var(--han)}
+  .srow h3 .ic{width:38px;height:38px;flex:none;color:var(--coral)}
+  .srow p{color:var(--ink-soft);font-size:1.04rem;max-width:46ch}
+
+  /* CONTACT */
+  .contact{background:#101413;color:var(--ink);text-align:center}
+  .contact h2{font-family:var(--disp);font-size:clamp(2.2rem,5vw,4rem);font-weight:700;margin-bottom:1.4rem;color:var(--ink)}
+  .contact h2.zh{font-family:var(--han)}
+  .contact h2 .sun{color:var(--sun)}
+  .contact p{color:rgba(251,244,231,.72);max-width:40ch;margin:0 auto 2.4rem;font-size:1.06rem}
+  .contact .mail{display:inline-flex;align-items:center;gap:11px;background:var(--sun);color:#1A1E1D;font-family:var(--disp);font-weight:700;font-size:1.1rem;padding:15px 34px;border-radius:100px;transition:transform .35s cubic-bezier(.34,1.5,.64,1),box-shadow .35s;box-shadow:0 10px 26px rgba(0,0,0,.3)}
+  .contact .mail:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.4)}
+  .contact .mail svg{width:19px;height:19px}
+
+  /* FOOTER */
+  footer{background:#101413;padding:54px 0 46px;border-top:1px solid rgba(255,255,255,.1)}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+  .foot .flogo img{height:56px;width:auto;display:block}
+  .foot .social{display:flex;gap:20px}
+  .foot .social a{color:rgba(251,244,231,.62);font-size:.9rem;font-weight:600;transition:color .25s}
+  .foot .social a:hover{color:var(--sun)}
+  .foot .copy{color:rgba(251,244,231,.4);font-size:.82rem;width:100%;text-align:center;margin-top:10px;border-top:1px solid rgba(255,255,255,.08);padding-top:22px}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.delay{transition-delay:.16s}
+
+  @media(max-width:880px){
+    nav,.wrap{padding-left:20px;padding-right:20px}
+    .nav-links{display:none}
+    .sec{padding:80px 0}
+    .showcase{aspect-ratio:4/3}
+    .work-grid{grid-template-columns:1fr;gap:40px}
+    .about-grid{grid-template-columns:1fr;gap:40px}
+    .about-visual{order:-1}
+    .srow{grid-template-columns:1fr;gap:10px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}}
+  :focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:5px}
+</style>
+</head>
+<body data-lang="zh">
+
+<nav id="nav">
+  <div class="nav-inner">
+  <a href="#top" class="brand">
+    <img id="navlogo" src="assets/logo_h_dark.png" alt="橡實洞工作室 Acorn Den Studio">
+  </a>
+  <div class="nav-r">
+    <div class="nav-links">
+      <a href="#works"><span class="zh">作品</span><span class="en">Works</span></a>
+      <a href="#about"><span class="zh">關於</span><span class="en">About</span></a>
+      <a href="#studio"><span class="zh">服務</span><span class="en">Studio</span></a>
+      <a href="#contact"><span class="zh">合作</span><span class="en">Contact</span></a>
+    </div>
+    <div class="lang">
+      <button id="z" class="on" onclick="setLang('zh')">中</button>
+      <button id="e" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  </div>
+</nav>
+
+<!-- ===== HERO：中央大圖 ===== -->
+<header class="hero" id="top">
+  <div class="hero-stage">
+    <div class="showcase reveal"></div>
+    <div class="hero-arrow">
+      <a href="#works" aria-label="往下看作品">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== WORKS：四格兩兩並排 ===== -->
+<section class="sec works" id="works">
+  <div class="wrap">
+    <div class="works-head reveal">
+      <span class="kicker"><span class="zh">作品</span><span class="en">Works</span></span>
+      <h2 class="big"><span class="zh">我們的<span class="accent">作品</span></span><span class="en">Our <span class="accent">Works</span></span></h2>
+    </div>
+
+    <div class="work-grid">
+      <!-- 1. 貓咪船長 -->
+      <article class="work reveal">
+        <div class="work-thumb cc"><div class="img"></div><img class="logo-on" src="assets/captain_cat_logo_shadow.png" alt=""></div>
+        <div class="work-meta"><span class="date">2026</span><span class="tag zh">VR 休閒冒險</span><span class="tag en">VR Cozy Adventure</span></div>
+        <h3 class="zh">貓咪船長</h3><h3 class="en">Captain Cat</h3>
+        <p class="romaji">我家的貓咪死後成了航海專家這件事 · My Cat Became a Sea Travel Guide… After Death!?</p>
+        <p class="desc zh">死後來到貓咪天國的橘貓，駕著小船穿梭熱帶群島，在化解一個個小小遺憾的過程中，尋找重返主人身邊的方法——在貓咪的世界裡，告別也可以很溫柔。</p>
+        <p class="desc en">An orange cat wakes in a sun-soaked feline heaven and sails between tropical islands, easing one small regret after another — searching for the way home. Here, even goodbye can be gentle.</p>
+      </article>
+
+      <!-- 2. 蟬與花 -->
+      <article class="work reveal">
+        <div class="work-thumb tba"><span class="ph zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg>主視覺準備中</span><span class="ph en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg>Key art coming</span></div>
+        <div class="work-meta"><span class="date zh">準備中</span><span class="date en">In progress</span><span class="tag soon zh">即將登場</span><span class="tag soon en">Coming soon</span></div>
+        <h3 class="zh">蟬與花</h3><h3 class="en">Cicada &amp; Flower</h3>
+        <p class="romaji">Cicada &amp; Flower</p>
+        <p class="desc zh">一段關於夏日與短暫的故事。完整介紹與主視覺即將登場。</p>
+        <p class="desc en">A story about summer, and things that don't last. Full details and key art coming soon.</p>
+      </article>
+
+      <!-- 3. 宵待草綺譚 -->
+      <article class="work reveal">
+        <div class="work-thumb tba"><span class="ph zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg>主視覺準備中</span><span class="ph en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg>Key art coming</span></div>
+        <div class="work-meta"><span class="date zh">準備中</span><span class="date en">In progress</span><span class="tag soon zh">即將登場</span><span class="tag soon en">Coming soon</span></div>
+        <h3 class="zh">宵待草綺譚</h3><h3 class="en">Yoimachigusa</h3>
+        <p class="romaji">A Tale of the Evening Primrose</p>
+        <p class="desc zh">一則於夜色中靜靜綻放的奇譚。完整介紹與主視覺即將登場。</p>
+        <p class="desc en">A strange, tender tale that blooms only after dark. Full details and key art coming soon.</p>
+      </article>
+
+      <!-- 4. 貝殼島 -->
+      <article class="work reveal">
+        <div class="work-thumb tba"><span class="ph zh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg>主視覺準備中</span><span class="ph en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg>Key art coming</span></div>
+        <div class="work-meta"><span class="date zh">準備中</span><span class="date en">In progress</span><span class="tag soon zh">即將登場</span><span class="tag soon en">Coming soon</span></div>
+        <h3 class="zh">貝殼島</h3><h3 class="en">The Shell of Island</h3>
+        <p class="romaji">The Shell of Island</p>
+        <p class="desc zh">一座藏在貝殼裡的小島。完整介紹與主視覺即將登場。</p>
+        <p class="desc en">A little island tucked inside a shell. Full details and key art coming soon.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="zh">關於我們</span><span class="en">About us</span></span>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-lead zh">我們相信，<span class="hl">告別</span>也能是一段溫柔、幽默、帶著療癒感的旅程。</p>
+        <p class="about-lead en">We believe even a <span class="hl">farewell</span> can be tender, funny, and quietly healing.</p>
+        <p class="sub zh">橡實洞工作室是一間紮根台灣的療癒系內容工作室。我們橫跨 XR 沉浸式體驗、行動遊戲與多媒體互動，把在地的情感紋理，化為一個個可以鑽進去歇息的小宇宙。小小的、慢慢的、可愛的，但對待每一份情感都很認真。</p>
+        <p class="sub en">Acorn Den Studio is a healing-focused content studio rooted in Taiwan, working across XR experiences, mobile games, and multimedia. We turn local emotional texture into little worlds you can burrow into and rest — small, slow, adorable, yet serious about every feeling we hold.</p>
+        <div class="about-meta">
+          <div><div class="k zh">成立地</div><div class="k en">Based in</div><div class="v">Taiwan</div></div>
+          <div><div class="k zh">領域</div><div class="k en">Field</div><div class="v zh">XR · 行動遊戲 · 多媒體</div><div class="v en">XR · Mobile · Multimedia</div></div>
+          <div><div class="k zh">調性</div><div class="k en">Tone</div><div class="v zh">療癒 · 告別</div><div class="v en">Healing · Farewell</div></div>
+        </div>
+      </div>
+      <div class="about-visual reveal delay">
+        <img class="about-char" src="assets/captain_cat_char.png" alt="貓咪船長角色 / Captain Cat character">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDIO ===== -->
+<section class="sec works" id="studio">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="zh">服務項目</span><span class="en">What we do</span></span>
+    <h2 class="big reveal"><span class="zh">我們<span class="accent">提供</span>的服務</span><span class="en">What we <span class="accent">offer</span></span></h2>
+    <div class="studio-list reveal">
+      <div class="srow">
+        <h3><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="20" rx="7"/><circle cx="17" cy="25" r="3.5"/><circle cx="31" cy="25" r="3.5"/></svg>XR Experience</h3>
+        <p class="zh">VR／AR／MR 沉浸式體驗的設計與開發。</p>
+        <p class="en">Design and development of immersive VR / AR / MR experiences.</p>
+      </div>
+      <div class="srow">
+        <h3><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="6" width="20" height="36" rx="4"/><path d="M21 36h6"/></svg>Mobile Games</h3>
+        <p class="zh">療癒取向的功能型行動應用與遊戲。</p>
+        <p class="en">Healing-oriented mobile games and functional apps.</p>
+      </div>
+      <div class="srow">
+        <h3><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><path d="M24 7v34M7 24h34" opacity=".5"/><circle cx="24" cy="24" r="6"/></svg>MultiMedia Performance</h3>
+        <p class="zh">結合展演與互動裝置的多媒體互動設計。</p>
+        <p class="en">Multimedia and interactive design for exhibitions and live performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="sec contact" id="contact">
+  <div class="wrap reveal">
+    <h2 class="en">Contact Us</h2>
+    <h2 class="zh">Contact Us</h2>
+    <p class="zh">歡迎洽詢發行合作、專案委製與各類商務提案，我們會盡快回覆。</p>
+    <p class="en">For publishing, commissioned projects, and business enquiries — we'll get back to you shortly.</p>
+    <a href="mailto:acorndenstudio@gmail.com" class="mail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7l9 6 9-6"/></svg>
+      acorndenstudio@gmail.com
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="flogo"><img src="assets/logo_h_white.png" alt="橡實洞工作室 Acorn Den Studio"></a>
+    <div class="social">
+      <a href="#">Instagram</a><a href="#">Facebook</a><a href="mailto:acorndenstudio@gmail.com">Email</a>
+    </div>
+    <div class="copy">© 2026 橡實洞遊戲有限公司 Acorn Den Studio</div>
+  </div>
+</footer>
+
+<script>
+  const z=document.getElementById('z'), e=document.getElementById('e');
+  function setLang(l){document.body.setAttribute('data-lang',l);document.documentElement.lang=(l==='zh')?'zh-Hant':'en';z.classList.toggle('on',l==='zh');e.classList.toggle('on',l==='en')}
+  const nav=document.getElementById('nav');
+  const sc=()=>nav.classList.toggle('solid',scrollY>40); addEventListener('scroll',sc); sc();
+  const io=new IntersectionObserver(es=>{es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -7% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
