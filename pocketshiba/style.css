@@ -1,0 +1,339 @@
+/* 口袋柴犬頁面：日系生活雜誌的透明感——近白的底、淡淡的天空藍，小物件點綴在留白裡；標題用遊戲的源泉圓體 */
+@font-face{font-family:"PocketShibaRounded";src:url("fonts/gensen-rounded-b.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"PocketShibaRounded";src:url("fonts/gensen-rounded-h.woff2") format("woff2");font-weight:900;font-display:swap}
+:root{
+  --paper:#FBF9F5;
+  --mist:#EDF5F8;
+  --ink:#3D4250;
+  --ink-soft:#7B808D;
+  --accent:#6AA7BF;
+  --warm:#D9A877;
+  --line:#E3E8EC;
+  --round:"PocketShibaRounded","Noto Sans TC",sans-serif;
+  --body:"Noto Sans TC",sans-serif;
+  --latin:"Cormorant Garamond",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-weight:400;background:var(--paper);color:var(--ink);line-height:2;letter-spacing:.06em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--round);font-weight:700;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+figure{margin:0}
+.latin{font-family:var(--latin);font-style:italic;letter-spacing:.04em}
+
+/* 中英切換（同官網首頁） */
+body[data-lang="en"] .zh{display:none!important}
+body[data-lang="zh"] .en{display:none!important}
+body[data-lang="en"]{font-family:"Nunito",var(--body);letter-spacing:.01em;line-height:1.85}
+body[data-lang="en"] h1,body[data-lang="en"] h2,body[data-lang="en"] h3,body[data-lang="en"] dt,body[data-lang="en"] .cap,body[data-lang="en"] figcaption,body[data-lang="en"] .cta,body[data-lang="en"] .faq summary,body[data-lang="en"] .nav-links a,body[data-lang="en"] .doc-head .label{font-family:"Nunito",var(--round);font-weight:700;letter-spacing:0}
+
+/* NAV：淡、透 */
+nav{position:sticky;top:0;z-index:100;background:rgba(251,249,245,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand img{height:34px;width:auto;display:block}
+.nav-r{display:flex;align-items:center;gap:26px}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-family:var(--round);font-size:.86rem;letter-spacing:.1em;text-decoration:none;white-space:nowrap;color:var(--ink-soft)}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--ink)}
+.lang{display:flex;gap:10px;font-family:var(--round);font-size:.82rem}
+.lang button{background:none;border:none;cursor:pointer;color:var(--ink-soft);opacity:.6;font:inherit;padding:0}
+.lang button.on{opacity:1;color:var(--accent)}
+
+.wrap{max-width:1040px;margin:0 auto;padding:0 32px}
+.center{text-align:center}
+
+/* 封面：只有字，像雜誌的扉頁 */
+.hero{padding:120px 0 72px;text-align:center;background:linear-gradient(180deg,var(--mist) 0%,var(--paper) 100%)}
+.kicker{color:var(--ink-soft);font-size:1.05rem}
+.hero h1{font-weight:900;font-size:3.6rem;letter-spacing:.14em;margin-top:14px;line-height:1.3}
+body[data-lang="en"] .hero h1{font-size:3.2rem}
+.hero-sub{font-family:var(--round);font-size:1.1rem;color:var(--ink);margin-top:12px}
+.hero-lead{color:var(--ink-soft);margin-top:4px;font-size:.95rem}
+.hero-meta{display:inline-block;margin-top:34px;font-size:.8rem;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 18px}
+
+/* 章節 */
+.ch{padding:110px 0}
+.ch-2,.ch-4{background:linear-gradient(180deg,var(--paper) 0%,var(--mist) 50%,var(--paper) 100%)}
+.ch-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.ch-grid.rev .ch-text{order:2}
+.ch-no{display:flex;align-items:baseline;gap:14px;color:var(--accent);margin-bottom:18px}
+.ch-no span:first-child{font-family:var(--latin);font-size:2.4rem;line-height:1}
+.ch-no .latin{font-size:1.05rem;color:var(--ink-soft)}
+.center .ch-no{justify-content:center}
+.ch h2{font-size:2rem;letter-spacing:.12em;margin-bottom:22px}
+.ch-text p{color:var(--ink-soft);margin-bottom:1em;max-width:26em}
+.ch-text.center p{margin-left:auto;margin-right:auto;max-width:32em}
+.note{font-size:.78rem;margin-top:24px}
+
+/* 場景：物件散在留白裡，底下一圈淡影 */
+.scene{position:relative;width:100%}
+.obj{position:absolute;height:auto}
+.floor{position:absolute;height:5%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(90,110,130,.18) 0%,rgba(90,110,130,0) 70%)}
+.cap{position:absolute;font-family:var(--round);font-size:.8rem;color:var(--ink-soft);letter-spacing:.12em}
+
+.scene-1{aspect-ratio:1/.82}
+.o-box{width:72%;left:12%;bottom:10%}
+.o-chime{width:9%;right:8%;top:0}
+.f-box{width:70%;left:14%;bottom:7%}
+.rain{position:absolute;inset:0 0 25% 0;opacity:.55;
+  background-image:repeating-linear-gradient(105deg,transparent 0 46px,rgba(106,167,191,.35) 46px 47px,transparent 47px 92px);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 90%);mask-image:linear-gradient(180deg,#000 0%,transparent 90%)}
+
+.scene-2{aspect-ratio:1/.8}
+.o-dog{width:54%;left:6%;bottom:16%}
+.o-bowl{width:26%;left:64%;bottom:13%}
+.f-dog{width:84%;left:6%;bottom:12%}
+.c-dog{right:6%;bottom:0}
+
+.scene-bath{aspect-ratio:1/.42;margin-top:40px}
+.o-bath{width:36%;left:32%;bottom:12%}
+.o-dryer{width:21%;left:72%;top:4%}
+.o-towel{width:9%;left:14%;top:14%;transform:rotate(-8deg)}
+.o-brush{width:10%;left:20%;bottom:16%;transform:rotate(10deg)}
+.o-bub1{width:3%;left:28%;top:6%}
+.o-bub2{width:2.2%;left:66%;top:22%}
+.f-bath{width:40%;left:30%;bottom:9%}
+.c-bath{left:0;right:0;text-align:center;bottom:-6px}
+
+.trips{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.scene-trip{aspect-ratio:1/.9}
+.t-dog{width:66%;left:17%;bottom:12%;z-index:1}
+.t-a{width:30%;left:0;top:4%}
+.t-b{width:22%;right:0;bottom:8%;z-index:2}
+.f-trip{width:76%;left:12%;bottom:8%}
+.trip figcaption{text-align:center;font-family:var(--round);font-size:.88rem;color:var(--ink);margin-top:12px;letter-spacing:.12em}
+
+.habits{margin-top:8px}
+.habits div{padding:14px 0;border-top:1px solid var(--line)}
+.habits div:last-child{border-bottom:1px solid var(--line)}
+.habits dt{font-family:var(--round);font-weight:700;font-size:1rem;color:var(--ink)}
+.habits dd{color:var(--ink-soft);font-size:.92rem}
+
+.scene-4{aspect-ratio:1/.95}
+.o-banner{width:66%;left:16%;top:2%}
+.o-clock{width:22%;left:6%;top:46%}
+.o-cal{width:20%;left:38%;top:50%}
+.o-bottle{width:20%;left:68%;bottom:10%}
+.f-bottle{width:26%;left:65%;bottom:8%}
+
+.scene-5{aspect-ratio:1/.6;max-width:520px;margin:0 auto 32px}
+.o-sofa{width:76%;left:12%;bottom:10%}
+.o-moss{width:15%;right:2%;bottom:9%}
+.f-sofa{width:76%;left:12%;bottom:7%}
+.ch-5 h2{letter-spacing:.16em}
+.cta{display:inline-block;margin-top:10px;font-family:var(--round);font-size:.95rem;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:8px 26px}
+
+/* 資訊 */
+.info{padding:96px 0 104px;border-top:1px solid var(--line)}
+.wrap.narrow{max-width:720px}
+.info-block{padding:28px 0;border-top:1px solid var(--line)}
+.info-block:first-child{border-top:0;padding-top:0}
+.info-block h2{font-size:1.1rem;letter-spacing:.14em;margin-bottom:10px}
+.info-block p{color:var(--ink-soft);font-size:.92rem;margin-bottom:.8em}
+.info-block p:last-child{margin-bottom:0}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;font-family:var(--round);font-weight:700;padding:14px 32px 14px 0;position:relative;font-size:.95rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:12px;color:var(--accent);font-size:1.2rem;line-height:1.2}
+.faq details[open] summary::after{content:"−"}
+.faq .ans{padding:0 0 16px}
+.faq ol{color:var(--ink-soft);font-size:.92rem;padding-left:1.4em;margin:.2em 0 .8em}
+.mail-line{font-family:var(--round);font-weight:700;font-size:1.1rem!important;color:var(--accent)!important}
+.mail-line a{text-decoration:none}
+
+/* 條款與政策：同字體與顏色，單欄好讀 */
+.doc-wrap{max-width:740px;margin:0 auto;padding:0 32px}
+.doc-head{padding:72px 0 16px}
+.doc-head .label{font-family:var(--latin);font-style:italic;font-size:1.05rem;color:var(--accent)}
+.doc-head h1{font-size:1.9rem;letter-spacing:.12em;margin-top:4px}
+body[data-lang="en"] .doc-head h1{letter-spacing:0}
+.doc-head .sub{color:var(--ink-soft);margin-top:6px;font-size:.85rem}
+.doc{padding-bottom:96px;font-size:.94rem}
+.doc h2{font-size:1.12rem;letter-spacing:.1em;margin:2.8rem 0 .8rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+body[data-lang="en"] .doc h2{letter-spacing:0}
+.doc p{margin-bottom:1em}
+.doc ul,.doc ol{padding-left:1.4em;margin-bottom:1.1em}
+.doc li{margin-bottom:.4em}
+.doc li::marker{color:var(--accent)}
+.doc .item{margin-bottom:1.1em}
+.doc .item strong{font-weight:500;color:var(--ink)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:48px 0 40px;color:var(--ink-soft);font-size:.82rem}
+.foot{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.foot img{height:32px;width:auto;display:block}
+.foot .links{display:flex;gap:22px;flex-wrap:wrap}
+.foot .links a{text-decoration:none}
+.foot .copy{width:100%;text-align:center;margin-top:6px;font-size:.78rem}
+
+@media(max-width:820px){
+  .nav-inner{padding:10px 16px;gap:10px}
+  .brand img{height:28px}
+  .nav-r{gap:12px}
+  .nav-links{gap:12px}
+  .nav-links a{font-size:.78rem;letter-spacing:.04em}
+  .lang{gap:6px;font-size:.78rem}
+  .wrap,.doc-wrap,.foot{padding-left:20px;padding-right:20px}
+  .hero{padding:72px 0 48px}
+  .hero h1{font-size:2.6rem}
+  body[data-lang="en"] .hero h1{font-size:2.3rem}
+  .ch{padding:72px 0}
+  .ch-grid{grid-template-columns:1fr;gap:28px}
+  .ch-grid.rev .ch-text{order:0}
+  .ch h2{font-size:1.55rem}
+  .scene-bath{aspect-ratio:1/.62}
+  .o-bath{width:50%;left:25%}
+  .o-dryer{width:28%;left:70%}
+  .o-towel{width:13%;left:6%}
+  .o-brush{width:15%;left:10%}
+  .f-bath{width:54%;left:23%}
+  .trips{grid-template-columns:1fr;gap:8px;max-width:270px;margin-left:auto;margin-right:auto}
+  .info{padding:64px 0 72px}
+  .doc-head{padding-top:48px}
+  .doc-head h1{font-size:1.6rem}
+}
+@media(max-width:360px){.nav-links .hide-xs{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ===== 小小的動態：慢、小、不搶戲 ===== */
+/* 字：大標逐字浮出 */
+.js .char{display:inline-block;opacity:0;translate:0 .35em;filter:blur(3px);transition:opacity .8s ease,translate .9s cubic-bezier(.22,.8,.3,1),filter .8s ease;transition-delay:calc(var(--i)*55ms + 80ms)}
+.js .in .char{opacity:1;translate:0 0;filter:none}
+/* 段落與標籤隨後淡入 */
+.js .hero .kicker,.js .hero .hero-sub,.js .hero .hero-lead,.js .hero .hero-meta,
+.js .ch-text .ch-no,.js .ch-text > p,.js .ch-text .habits,.js .ch-5 .cta{opacity:0;translate:0 12px;transition:opacity 1s ease,translate 1.1s cubic-bezier(.22,.8,.3,1)}
+.js .in .kicker{opacity:1;translate:0 0;transition-delay:.05s}
+.js .in .hero-sub{opacity:1;translate:0 0;transition-delay:.6s}
+.js .in .hero-lead{opacity:1;translate:0 0;transition-delay:.75s}
+.js .in .hero-meta{opacity:1;translate:0 0;transition-delay:.95s}
+.js .in .ch-no{opacity:1;translate:0 0}
+.js .ch-text.in > p{opacity:1;translate:0 0;transition-delay:.55s}
+.js .ch-text.in > p + p{transition-delay:.7s}
+.js .ch-text.in .habits{opacity:1;translate:0 0;transition-delay:.6s}
+.js .ch-5.in .cta{opacity:1;translate:0 0;transition-delay:1s}
+/* 物件：依序輕輕「放到桌上」 */
+.js .scene .obj:not(.bub),.js .scene .cap,.js .scene .floor{opacity:0;scale:.94;transition:opacity .9s ease,scale 1s cubic-bezier(.3,1.4,.5,1);transition-delay:calc(var(--k,0)*130ms + 150ms)}
+.js .scene.in .obj,.js .scene.in .cap,.js .scene.in .floor{opacity:1;scale:1}
+/* 摸一下會歪頭 */
+.scene .obj{transition-property:opacity,scale,rotate;cursor:default}
+.js .scene.in .obj:hover{rotate:-3deg;scale:1.04;transition-delay:0s;transition-duration:.4s}
+
+/* 風鈴輕輕擺 */
+.o-chime{transform-origin:50% 0;animation:sway 4.5s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+/* 雨絲緩緩落下 */
+.rain{animation:rain 6s linear infinite}
+@keyframes rain{to{background-position:-24px 140px}}
+/* 黑柴微微呼吸 */
+.o-dog{transform-origin:50% 100%;animation:breathe 3.6s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.018)}}
+/* 碗上的熱氣 */
+.steam{position:absolute;left:69%;bottom:36%;width:14%;height:16%;display:flex;justify-content:space-between}
+.steam i{display:block;width:2px;height:100%;border-radius:2px;background:linear-gradient(180deg,rgba(150,170,185,0) 0%,rgba(150,170,185,.55) 60%,rgba(150,170,185,0) 100%);opacity:0;animation:steam 3.4s ease-in-out infinite}
+.steam i:nth-child(2){animation-delay:1.1s}
+.steam i:nth-child(3){animation-delay:2.2s}
+@keyframes steam{0%{opacity:0;transform:translateY(10px) scaleY(.6)}40%{opacity:1}100%{opacity:0;transform:translateY(-14px) scaleY(1.1) skewX(-8deg)}}
+/* 泡泡往上飄 */
+.bub{animation:bubble 5s ease-in-out infinite}
+.o-bub2{animation-delay:2.4s}
+@keyframes bubble{0%{opacity:0;transform:translateY(16px) scale(.7)}25%{opacity:1}100%{opacity:0;transform:translateY(-40px) scale(1.05)}}
+/* 吹風機輕輕晃 */
+.o-dryer{transform-origin:70% 40%;animation:wiggle 2.8s ease-in-out infinite}
+@keyframes wiggle{0%,100%{transform:rotate(0)}50%{transform:rotate(-4deg)}}
+/* 布條像被風吹著 */
+.o-banner{transform-origin:50% 0;animation:flutter 5s ease-in-out infinite}
+@keyframes flutter{0%,100%{transform:skewX(0) rotate(0)}50%{transform:skewX(-2deg) rotate(.8deg)}}
+/* 旅行的柴犬錯開節奏輕輕踏步 */
+.t-dog{animation:hop 3.2s ease-in-out infinite}
+.trip:nth-child(2) .t-dog{animation-delay:.6s}
+.trip:nth-child(3) .t-dog{animation-delay:1.2s}
+@keyframes hop{0%,70%,100%{transform:translateY(0)}78%{transform:translateY(-6px)}86%{transform:translateY(0)}92%{transform:translateY(-3px)}}
+
+@media(prefers-reduced-motion:reduce){
+  .o-chime,.rain,.o-dog,.steam i,.bub,.o-dryer,.o-banner,.t-dog{animation:none}
+  .steam{display:none}
+  .js .char,.js .scene .obj,.js .scene .cap,.js .scene .floor,
+  .js .hero .kicker,.js .hero .hero-sub,.js .hero .hero-lead,.js .hero .hero-meta,
+  .js .ch-text .ch-no,.js .ch-text > p,.js .ch-text .habits,.js .ch-5 .cta{opacity:1;translate:none;scale:none;filter:none;transition:none}
+}
+
+/* 等開飯：和滑鼠碰到時同一個動作——很快歪過去、帶彈性回來（由 motion.js 輪流加上 .poke） */
+.js .scene.in .obj.poke{rotate:-3deg;scale:1.04;transition-delay:0s;transition-duration:.4s}
+
+/* 標題：一點點不整齊、有輕重、第二行錯開 */
+.ch h2 .line{display:block}
+.ch h2 .l2{padding-left:1.4em}
+.ch-text.center h2 .l2{padding-left:0;margin-left:1.4em}
+.ch h2 .key{font-style:normal;font-size:1.16em;color:var(--ink)}
+.ch h2 .p{font-size:.7em;color:var(--ink-soft)}
+.ch h2 .p .char{vertical-align:.18em}
+.js .in .char{translate:0 var(--jy,0);rotate:var(--jr,0deg)}
+.hero h1 .char{--jy:0px!important}
+.h-sub{font-family:var(--round);font-size:.95rem;color:var(--ink)!important;letter-spacing:.12em;margin-top:-6px;margin-bottom:1.4em!important}
+@media(prefers-reduced-motion:reduce){.js .char{translate:0 var(--jy,0);rotate:var(--jr,0deg)}}
+
+/* ===== 第二輪節奏調整 ===== */
+/* 逐字的時間由 motion.js 依標點計算（--d），段落等標題寫完（--after）才出現 */
+.js .char{transition-delay:calc(var(--d,0ms) + 80ms)}
+.js .ch-text.in > p{transition-delay:var(--after,.55s)}
+.js .ch-text.in > p + p{transition-delay:calc(var(--after,.55s) + 160ms)}
+.js .ch-text.in > p + p + p{transition-delay:calc(var(--after,.55s) + 320ms)}
+.js .ch-text.in .habits{transition-delay:calc(var(--after,.6s) + 120ms)}
+.js .in .hero-sub{transition-delay:var(--after,.6s)}
+.js .in .hero-lead{transition-delay:calc(var(--after,.75s) + 150ms)}
+.js .in .hero-meta{transition-delay:calc(var(--after,.95s) + 350ms)}
+.js .ch-5.in .cta{transition-delay:calc(var(--after,1s) + 200ms)}
+/* 狗：不再呼吸，被「碰」時只輕輕點一下頭（以腳為支點） */
+.o-dog{animation:none;transform-origin:50% 100%}
+.js .scene.in .o-dog.poke{rotate:-1.2deg;scale:1.012}
+/* 旅行的柴犬不跳 */
+.t-dog{animation:none}
+/* 大隻的柴犬不對滑鼠歪頭；狗床上的柴犬很慢地呼吸 */
+.js .scene.in .o-box:hover,.js .scene.in .o-bath:hover,.js .scene.in .t-dog:hover,.js .scene.in .o-sofa:hover{rotate:0deg;scale:1}
+.o-sofa{transform-origin:50% 100%;animation:rest 4.8s ease-in-out infinite}
+@keyframes rest{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.012)}}
+@media(prefers-reduced-motion:reduce){.o-sofa{animation:none}}
+
+/* ===== 第三輪 ===== */
+/* 封面：標題前的 App 圖示 */
+.hero .logo{width:88px;height:88px;border-radius:20px;margin:22px auto 0;box-shadow:0 6px 18px rgba(90,110,130,.16)}
+.js .hero .logo{opacity:0;scale:.9;transition:opacity .9s ease,scale 1s cubic-bezier(.3,1.4,.5,1)}
+.js .hero.in .logo{opacity:1;scale:1}
+
+/* 雨：細小、短，明顯在落下，速度快一些 */
+.rain{inset:0 0 18% 0;opacity:1;transform:skewX(-12deg);animation:none;background:none}
+.rain::before,.rain::after{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(1px 7px at 50% 50%,rgba(106,167,191,.6) 60%,transparent 62%);
+  background-size:38px 64px;animation:drops .55s linear infinite}
+.rain::after{background-size:52px 88px;background-position:19px 30px;opacity:.7;animation:drops2 .75s linear infinite}
+@keyframes drops{to{background-position-y:64px}}
+@keyframes drops2{from{background-position:19px 30px}to{background-position:19px 118px}}
+
+/* 紙箱裡的柴犬：灰淡一點、縮進紙箱、低著頭，偶爾微微發抖 */
+.o-box{aspect-ratio:551/390}
+.o-box .bx{position:absolute;inset:0;width:100%;height:100%}
+.bx-dog{filter:saturate(.72) brightness(.97);transform-origin:62% 90%;translate:0 5%;rotate:3deg;animation:shiver 3.2s linear infinite}
+@keyframes shiver{0%,58%,100%{transform:translateX(0)}60%{transform:translateX(-1.2px)}62%{transform:translateX(1.2px)}64%{transform:translateX(-1px)}66%{transform:translateX(1px)}68%{transform:translateX(-.6px)}70%{transform:translateX(0)}}
+
+/* 02：碗上的熱氣拿掉 */
+.steam{display:none}
+
+/* 03、04：圖等文字跑完再出現（--after 由 motion.js 記在章節上） */
+.js .ch-3 .scene .obj,.js .ch-3 .scene .floor,.js .ch-4 .scene .obj,.js .ch-4 .scene .floor{transition-delay:calc(var(--after,0ms) + var(--k,0)*140ms + 120ms)}
+.js .ch-3 .trip figcaption{opacity:0;transition:opacity .9s ease;transition-delay:calc(var(--after,0ms) + 700ms)}
+.js .ch-3 .trip.in figcaption{opacity:1}
+.js .ch-3 .trip:nth-child(2) .obj,.js .ch-3 .trip:nth-child(2) .floor{transition-delay:calc(var(--after,0ms) + 260ms + var(--k,0)*140ms)}
+.js .ch-3 .trip:nth-child(3) .obj,.js .ch-3 .trip:nth-child(3) .floor{transition-delay:calc(var(--after,0ms) + 520ms + var(--k,0)*140ms)}
+
+/* 05：狗床上的柴犬呼吸明顯一點，看起來更生動 */
+.o-sofa{animation:rest 3s ease-in-out infinite}
+@keyframes rest{0%,100%{transform:scale(1,1) translateY(0)}50%{transform:scale(1.008,1.035) translateY(-1px)}}
+
+@media(prefers-reduced-motion:reduce){
+  .rain::before,.rain::after,.bx-dog,.o-sofa{animation:none}
+  .js .hero .logo,.js .ch-3 .trip figcaption{opacity:1;scale:1;transition:none}
+}
