@@ -1,0 +1,98 @@
+{
+    "minVersion": "",
+    "latestVersion": "1.0",
+    "updateMessage": "",
+    "appStoreUrl": "https://apps.apple.com/app/id6807673819",
+    "announcements": [
+        {
+            "id": "2026-10-welcome-review",
+            "title": "口袋柴犬！",
+            "body": "歡迎來到口袋柴犬！\n\n狗狗很開心能與你一起生活！\n\n如果你喜歡這裡，歡迎到 App Store 留下好評。你的一句話，是我們這個小小工作室繼續做下去的力量。",
+            "startAt": "",
+            "endAt": "",
+            "minAppVersion": "",
+            "maxAppVersion": ""
+        },
+        {
+            "id": "2026-10-pool-redbrick",
+            "title": "令人懷念的紅磚老街即將開放！",
+            "body": "紅磚騎樓下，豆花攤冒著熱氣，茶館飄著茶香，電視正播著晚間新聞，角落的投幣式搖搖馬，還在等著誰呢？\n\n夕陽西下，老商店裡的琺瑯燈一盞盞亮起，燈影搖曳，彷彿時光從未離去。10/31，來紅磚老街開封時光膠囊吧！",
+            "startAt": "",
+            "endAt": "2026-10-31T23:59:59+08:00",
+            "minAppVersion": "",
+            "maxAppVersion": ""
+        },
+        {
+            "id": "2026-10-coat-bundles",
+            "title": "特殊柴犬花色禮包販售中！",
+            "body": "三款特別的柴犬花色禮包上架囉！\n\n・剛出爐的鬆軟生吐司，白白軟軟，帶著淡淡的奶香。\n・焙茶般溫潤的棕色，暖呼呼的，好像聞得到茶香。\n・濃郁的橙棕色，像一杯加了冰塊的泰式奶茶。\n\n每個禮包除了花色，還附上狗狗幣 600、腳印寶石 30 顆和雞胸肉 2 份，每款限購一次。歡迎前往「禮包」查看詳情！",
+            "startAt": "",
+            "endAt": "",
+            "minAppVersion": "",
+            "maxAppVersion": ""
+        }
+    ],
+    "codes": [
+        {
+            "hash": "44a0e9d0f501876fc336619ad081762d84e3ed4683bedd13da94a1d6ab8453f0",
+            "startAt": "",
+            "endAt": "2026-11-30T23:59:59+08:00",
+            "minAppVersion": "",
+            "rewards": [
+                {
+                    "id": "money",
+                    "amount": 300
+                },
+                {
+                    "id": "dog_food",
+                    "amount": 2
+                }
+            ]
+        },
+        {
+            "hash": "58247b0dd87456902f5df98581d64ade8f381c5c349f45bed8dafa8487ae22a3",
+            "startAt": "",
+            "endAt": "2026-11-30T23:59:59+08:00",
+            "minAppVersion": "",
+            "rewards": [
+                {
+                    "id": "premium_can",
+                    "amount": 1
+                },
+                {
+                    "id": "dog_steak",
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "hash": "1d084faff91f99572ff99a928e3f644923bb866279d2c3fb5634d2cb3718e94c",
+            "startAt": "",
+            "endAt": "2026-11-30T23:59:59+08:00",
+            "minAppVersion": "",
+            "rewards": [
+                {
+                    "id": "paw_gem",
+                    "amount": 10
+                }
+            ]
+        }
+    ],
+    "bundles": [
+        {
+            "productId": "com.AcornDenStudio.PocketShiba.bundle.coat_shokupan",
+            "startAt": "",
+            "endAt": ""
+        },
+        {
+            "productId": "com.AcornDenStudio.PocketShiba.bundle.coat_hojicha",
+            "startAt": "",
+            "endAt": ""
+        },
+        {
+            "productId": "com.AcornDenStudio.PocketShiba.bundle.coat_thai_tea",
+            "startAt": "",
+            "endAt": ""
+        }
+    ]
+}
